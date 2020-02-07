@@ -1,8 +1,8 @@
 # wbdv-sp20-group8-final-project
 
 <p align="center">
-  <a href="https://getbootstrap.com/">
-    <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" alt="Bootstrap logo" width="72" height="72">
+  <a href="#">
+    <img src="https://www.creativefabrica.com/wp-content/uploads/2019/06/Whiteboard-icon-by-ahlangraphic-580x386.jpg" alt="Final Project logo" width="72" height="72">
   </a>
 </p>
 
