@@ -10,6 +10,7 @@
 
 <p align="center">
   Amazing, intuitive, one of a kind online web app.
+  Team member: Zheng Feng, Fengqi Qiao, Chencheng Geng, Junxiang Zhao
   <br>
   <a href="https://docs.google.com/document/d/1zP26OH2wtjAF34QS98H1Z4gI65xga73pcWquBBFPGLo/edit?usp=sharing"><strong>Explore Project Discription»</strong></a>
   <br>
@@ -24,5 +25,5 @@
 </p>
 
 
-Team member: Zheng Feng, Fengqi Qiao, Chencheng Geng, Junxiang Zhao
+
 
