@@ -6,7 +6,9 @@
   </a>
 </p>
 
-<h3 align="center">Final Project</h3>
+<h2 align="center">Final Project</h2>
+
+<h4 align="center">Team member: Zheng Feng, Fengqi Qiao, Chencheng Geng, Junxiang Zhao</h4>
 
 <p align="center">
   Amazing, intuitive, one of a kind online web app.
