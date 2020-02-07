@@ -10,10 +10,10 @@
 
 <p align="center">
   Amazing, intuitive, one of a kind online web app.
-<!--   <br>
+  <br>
   <a href="https://docs.google.com/document/d/1zP26OH2wtjAF34QS98H1Z4gI65xga73pcWquBBFPGLo/edit?usp=sharing"><strong>Explore Project Discription»</strong></a>
   <br>
-  <br>
+<!--   <br>
   <a href="https://github.com/twbs/bootstrap/issues/new?template=bug.md">Report bug</a>
   ·
   <a href="https://github.com/twbs/bootstrap/issues/new?template=feature.md&labels=feature">Request feature</a>
