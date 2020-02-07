@@ -9,8 +9,8 @@
 <h3 align="center">Final Project</h3>
 
 <p align="center">
-  <div>Amazing, intuitive, one of a kind online web app.</div>
-  <div>Team member: Zheng Feng, Fengqi Qiao, Chencheng Geng, Junxiang Zhao</div>
+  Amazing, intuitive, one of a kind online web app.
+  
   <br>
   <a href="https://docs.google.com/document/d/1zP26OH2wtjAF34QS98H1Z4gI65xga73pcWquBBFPGLo/edit?usp=sharing"><strong>Explore Project Discription»</strong></a>
   <br>
