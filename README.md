@@ -6,12 +6,12 @@
   </a>
 </p>
 
-<h3 align="center">Bootstrap</h3>
+<h3 align="center">Final Project</h3>
 
 <p align="center">
-  Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+  Amazing, intuitive, one of a kind online web app.
   <br>
-  <a href="https://getbootstrap.com/docs/4.3/"><strong>Explore Bootstrap docs »</strong></a>
+  <a href="https://docs.google.com/document/d/1zP26OH2wtjAF34QS98H1Z4gI65xga73pcWquBBFPGLo/edit?usp=sharing"><strong>Explore Project Discription»</strong></a>
   <br>
   <br>
   <a href="https://github.com/twbs/bootstrap/issues/new?template=bug.md">Report bug</a>
