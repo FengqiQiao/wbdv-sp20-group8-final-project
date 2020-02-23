@@ -14,7 +14,7 @@
   Amazing, intuitive, one of a kind online web app.
   
   <br>
-  <a href="https://docs.google.com/document/d/1zP26OH2wtjAF34QS98H1Z4gI65xga73pcWquBBFPGLo/edit?usp=sharing"><strong>Explore Project Discription»</strong></a>
+  <a href="https://docs.google.com/document/d/1zP26OH2wtjAF34QS98H1Z4gI65xga73pcWquBBFPGLo/edit?usp=sharing"><strong>Explore Project Discription in Google Docs»</strong></a>
   <br>
 <!--   <br>
   <a href="https://github.com/twbs/bootstrap/issues/new?template=bug.md">Report bug</a>
