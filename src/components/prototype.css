@@ -1,0 +1,9 @@
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-btn {
+    margin-top: 15px;
+}
