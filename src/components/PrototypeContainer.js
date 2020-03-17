@@ -1,5 +1,6 @@
 import React from "react";
-import './prototype.css'
+import './Prototype.css'
+import PhotoComponent from "./photo";
 
 class PrototypeContainer extends React.Component {
     state = {
@@ -8,17 +9,10 @@ class PrototypeContainer extends React.Component {
         show: false
     }
 
-    // componentDidMount() {
-    //     let proxy = "https://cors-anywhere.herokuapp.com/"
-    //     fetch(proxy + "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyC1ucluPOje2LzYoF5hnN2M9PvnKSYurQg")
-    //         .then(response => response.json())
-    //         .then(results => {
-    //             console.log(results.candidates)
-    //             this.setState({
-    //                 university: results.candidates
-    //             })
-    //         })
-    // }
+    componentDidMount() {
+        if(this.props.university)
+            this.search(this.props.university)
+    }
 
     search = (val) => {
         let proxy = "https://cors-anywhere.herokuapp.com/"
@@ -48,6 +42,7 @@ class PrototypeContainer extends React.Component {
                     }/>
                 <div className="search-btn">
                     <button className="form-control btn-primary" onClick={()=>{
+                        this.props.history.push(`/${this.state.inputField}`)
                         this.search(this.state.inputField)
                     }}>Search</button>
                 </div>
@@ -61,15 +56,26 @@ class PrototypeContainer extends React.Component {
                             this.state.university.length !== 0 &&
                             this.state.university.map(data =>
                                <div key={(new Date()).getTime()+""}>
-                                   <div>{data.name}</div>
-                                   <div>{data.formatted_address}</div>
-
-                                   {
-                                       data.photos &&
-                                       data.photos[0].html_attributions
-                                   }
+                                   <div className="row">
+                                       <div className="col-6">
+                                           <div className="data-font"><i className="fas fa-university"></i>&nbsp;{data.name}</div>
+                                           <div className="data-font"><i className="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{data.formatted_address}</div>
+                                           <div className="data-font"><i className="fas fa-star"></i>&nbsp;Rating:&nbsp;{data.rating}</div>
+                                       </div>
+                                   {/*{*/}
+                                   {/*    data.photos &&*/}
+                                   {/*    data.photos[0].html_attributions*/}
+                                   {/*}*/}
                                    {/*<a href={data.photos.html_attributions}>{}</a>*/}
-                                </div>
+                                       <div className="col-6">
+                                           {
+                                               data.photos &&
+                                               <PhotoComponent
+                                                   URL={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&maxheight=500&photoreference=${data.photos[0].photo_reference}&key=AIzaSyC1ucluPOje2LzYoF5hnN2M9PvnKSYurQg`}/>
+                                           }
+                                        </div>
+                                   </div>
+                               </div>
                              )}
 
                     </div>
@@ -77,7 +83,7 @@ class PrototypeContainer extends React.Component {
 
                 {
                     this.state.show &&
-                    <h3>My Google Maps Demo</h3>
+                    <h3>Google Map</h3>
                 }
                 <div id="map"></div>
             </div>
