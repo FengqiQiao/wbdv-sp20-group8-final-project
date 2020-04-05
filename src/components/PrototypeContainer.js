@@ -7,7 +7,7 @@ class PrototypeContainer extends React.Component {
         university: [],
         inputField: '',
         show: false
-    }
+    };
 
     componentDidMount() {
         if(this.props.university)
@@ -15,19 +15,28 @@ class PrototypeContainer extends React.Component {
     }
 
     search = (val) => {
-        let proxy = "https://cors-anywhere.herokuapp.com/"
-        fetch(proxy + `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${val}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyC1ucluPOje2LzYoF5hnN2M9PvnKSYurQg`)
+        let isValid = 1;
+        fetch(`http://localhost:8080/api/checkvalid/${val}`)
             .then(response => response.json())
-            .then(results => {
-                console.log(results.candidates)
-                this.setState({
-                    university: results.candidates,
-                    show: true
-                })
-                if(this.state.university.length !== 0)
-                    window.initMap(this.state.university[0].geometry.location.lat,this.state.university[0].geometry.location.lng)
+            .then(isValid => {
+                if (isValid === 1) {
+                    let proxy = "https://cors-anywhere.herokuapp.com/";
+                    fetch(proxy + `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${val}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyC1ucluPOje2LzYoF5hnN2M9PvnKSYurQg`)
+                        .then(response => response.json())
+                        .then(results => {
+                            console.log(results.candidates);
+                            this.setState({
+                                university: results.candidates,
+                                show: true
+                            });
+                            if (this.state.university.length !== 0)
+                                window.initMap(this.state.university[0].geometry.location.lat, this.state.university[0].geometry.location.lng)
+                        })
+                } else {
+                    alert("Not a valid university name.")
+                }
             })
-    }
+    };
 
     render(){
         return (
