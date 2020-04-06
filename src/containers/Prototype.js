@@ -1,7 +1,8 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom"
-import PrototypeContainer from "../components/PrototypeContainer";
-import LoginComponent from "../components/LoginComponent";
+import SearchContainer from "../components/SearchContainer";
+import SignupComponent from "../components/SignupComponent";
+import SigninComponent from "../components/SigninComponent";
 
 class Prototype extends React.Component {
 
@@ -14,7 +15,15 @@ class Prototype extends React.Component {
                         path={"/"}
                         exact={true}
                         render={(props) =>
-                            <LoginComponent
+                            <SigninComponent
+                                {...props}/>}
+                    />
+
+                    <Route
+                        path={"/signup"}
+                        exact={true}
+                        render={(props) =>
+                            <SignupComponent
                                 {...props}/>}
                     />
 
@@ -22,7 +31,7 @@ class Prototype extends React.Component {
                         path={"/search"}
                         exact={true}
                         render={(props) =>
-                            <PrototypeContainer
+                            <SearchContainer
                                 {...props}/>}
                     />
 
@@ -31,7 +40,7 @@ class Prototype extends React.Component {
                         path={"/search/:university"}
                         exact={true}
                         render={(props) =>
-                            <PrototypeContainer
+                            <SearchContainer
                                 university={props.match.params.university}
                                 {...props}/>}
                     />

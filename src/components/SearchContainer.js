@@ -2,7 +2,7 @@ import React from "react";
 import './Prototype.css'
 import PhotoComponent from "./photo";
 
-class PrototypeContainer extends React.Component {
+class SearchContainer extends React.Component {
     state = {
         university: [],
         inputField: '',
@@ -51,7 +51,7 @@ class PrototypeContainer extends React.Component {
                     }/>
                 <div className="search-btn">
                     <button className="form-control btn-primary" onClick={()=>{
-                        this.props.history.push(`/${this.state.inputField}`)
+                        this.props.history.push(`/search/${this.state.inputField}`)
                         this.search(this.state.inputField)
                     }}>Search</button>
                 </div>
@@ -101,4 +101,4 @@ class PrototypeContainer extends React.Component {
 }
 
 
-export default PrototypeContainer
+export default SearchContainer
