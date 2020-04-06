@@ -11,20 +11,27 @@ class SignupComponent extends React.Component{
                             <h2 className="form-title">Sign up</h2>
                             <form method="POST" className="register-form" id="register-form">
                                 <div className="form-group">
-                                    <label htmlFor="name"><i
-                                        className="zmdi zmdi-account material-icons-name"></i></label>
+                                    <label htmlFor="name">
+                                        <i className="zmdi zmdi-account material-icons-name"/>
+                                    </label>
                                     <input type="text" name="name" id="name" placeholder="Your Name"/>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="email"><i className="zmdi zmdi-email"></i></label>
+                                    <label htmlFor="email">
+                                        <i className="zmdi zmdi-email"/>
+                                    </label>
                                     <input type="email" name="email" id="email" placeholder="Your Email"/>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="pass"><i className="zmdi zmdi-lock"></i></label>
+                                    <label htmlFor="pass">
+                                        <i className="zmdi zmdi-lock"/>
+                                    </label>
                                     <input type="password" name="pass" id="pass" placeholder="Password"/>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="re-pass"><i className="zmdi zmdi-lock-outline"></i></label>
+                                    <label htmlFor="re-pass">
+                                        <i className="zmdi zmdi-lock-outline"/>
+                                    </label>
                                     <input type="password" name="re_pass" id="re_pass"
                                            placeholder="Repeat your password"/>
                                 </div>
