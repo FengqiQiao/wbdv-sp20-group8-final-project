@@ -17,7 +17,7 @@ class Prototype extends React.Component {
                         path={"/"}
                         exact={true}
                         render={(props) =>
-                            <HomePageComponent
+                            <SearchContainer
                                 {...props}/>}
                     />
 
@@ -37,13 +37,13 @@ class Prototype extends React.Component {
                                 {...props}/>}
                     />
 
-                    <Route
-                        path={"/search"}
-                        exact={true}
-                        render={(props) =>
-                            <SearchContainer
-                                {...props}/>}
-                    />
+                    {/*<Route*/}
+                    {/*    path={"/search"}*/}
+                    {/*    exact={true}*/}
+                    {/*    render={(props) =>*/}
+                    {/*        <SearchContainer*/}
+                    {/*            {...props}/>}*/}
+                    {/*/>*/}
 
                     <Route
                         path={"/profile"}

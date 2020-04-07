@@ -14,13 +14,20 @@ class SearchContainer extends React.Component {
             this.search(this.props.university)
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.university !== prevProps.university) {
+            this.search(this.props.university)
+        }
+    }
+
     search = (val) => {
         let isValid = 1;
         fetch(`http://localhost:8080/api/checkvalid/${val}`)
             .then(response => response.json())
             .then(isValid => {
                 if (isValid === 1) {
-                    let proxy = "https://cors-anywhere.herokuapp.com/";
+                    let proxy = "https://sleepy-reef-18653.herokuapp.com/";
+                    // let proxy = "http://remote.server.com:8085/service";
                     fetch(proxy + `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${val}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyC1ucluPOje2LzYoF5hnN2M9PvnKSYurQg`)
                         .then(response => response.json())
                         .then(results => {
@@ -42,7 +49,13 @@ class SearchContainer extends React.Component {
         return (
             <div className="container">
                 <h1>Final Project</h1>
-
+                <h1>Home Page</h1>
+                <li>
+                    <a href="/login">login</a>
+                </li>
+                <li>
+                    <a href="/register">register</a>
+                </li>
                 <input type="text" className="form-control" placeholder="University Name" value={this.state.inputField}
                     onChange={(e) =>
                         this.setState({
@@ -52,7 +65,7 @@ class SearchContainer extends React.Component {
                 <div className="search-btn">
                     <button className="form-control btn-primary" onClick={()=>{
                         this.props.history.push(`/search/${this.state.inputField}`)
-                        this.search(this.state.inputField)
+                        //this.search(this.state.inputField)
                     }}>Search</button>
                 </div>
 
