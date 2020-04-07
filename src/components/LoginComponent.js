@@ -88,7 +88,7 @@ class LoginComponent extends React.Component{
                                 <div className="form-group form-button">
                                     <input
                                         onClick={() => this.loginService(this.state.user)}
-                                        type="submit"
+                                        type="button"
                                         name="signin"
                                         id="signin"
                                         className="form-submit"

@@ -89,22 +89,30 @@ class RegisterComponent extends React.Component{
                                         placeholder="Repeat your password"/>
                                 </div>
                                 {/*<div className="form-group">*/}
-                                <div className="form-group ">
+                                <div className="form-group role-border">
                                     <i className="zmdi zmdi-account-box "/>
-                                    <select className="custom-select w-75 ml-3">
+                                    <select
+                                        className="custom-select w-75 ml-2"
+                                        onChange={(e) => {
+                                            this.setState({
+                                              role: e.target.value
+                                            })
+                                        }}
+                                        value={this.state.role}
+                                    >
                                         <option value="CURRENT">Current Student</option>
                                         <option value="POTENTIAL">Potential Student</option>
                                     </select>
                                 </div>
                                 {/*</div>*/}
                                 <div className="form-group form-button">
-                                    <button
+                                    <input
                                         onClick={() => this.registerService(this.state)}
-                                        // onClick={() => this.registerTest()}
-                                        id="signup"
-                                        className="btn">
-                                        register
-                                    </button>
+                                        type="button"
+                                        name="signin"
+                                        id="signin"
+                                        className="form-submit"
+                                        value="Register"/>
                                 </div>
                             </div>
                         </div>

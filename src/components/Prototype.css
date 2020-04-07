@@ -627,4 +627,13 @@ label.valid:after {
         margin-bottom: 10px; } }
 
 /*# sourceMappingURL=style.css.map */
+.custom-select{
+    font-family: Poppins;
+    font-size: 0.85em;
+    color: #999;
+    border-width: 0;
+}
 
+.role-border{
+    border-bottom: 1px solid #999;
+}
