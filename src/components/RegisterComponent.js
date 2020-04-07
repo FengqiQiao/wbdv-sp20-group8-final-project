@@ -1,15 +1,19 @@
 import React from "react";
 import "./Prototype.css"
 import {register} from "../services/UserService";
+import $ from "jquery"
 
 class RegisterComponent extends React.Component{
     state = {
         username: '',
         email: '',
         password: '',
-        validatePassword: ''
-
+        validatePassword: '',
+        role: ''
     };
+
+    // dropdown = () =>
+    //     $('.dropdown-toggle').dropdown();
     //
     // registerTest = () =>
     //     this.props.history.push('/search');
@@ -26,7 +30,6 @@ class RegisterComponent extends React.Component{
                         <div className="signup-form">
                             <h2 className="form-title">Register</h2>
                             <div
-                                // method="POST"
                                 className="register-form"
                                 id="register-form">
                                 <div className="form-group">
@@ -85,6 +88,15 @@ class RegisterComponent extends React.Component{
                                         id="re_pass"
                                         placeholder="Repeat your password"/>
                                 </div>
+                                {/*<div className="form-group">*/}
+                                <div className="form-group ">
+                                    <i className="zmdi zmdi-account-box "/>
+                                    <select className="custom-select w-75 ml-3">
+                                        <option value="CURRENT">Current Student</option>
+                                        <option value="POTENTIAL">Potential Student</option>
+                                    </select>
+                                </div>
+                                {/*</div>*/}
                                 <div className="form-group form-button">
                                     <button
                                         onClick={() => this.registerService(this.state)}
