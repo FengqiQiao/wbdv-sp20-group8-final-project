@@ -1,8 +1,10 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import SearchContainer from "../components/SearchContainer";
-import SignupComponent from "../components/SignupComponent";
-import SigninComponent from "../components/SigninComponent";
+import RegisterComponent from "../components/RegisterComponent";
+import LoginComponent from "../components/LoginComponent";
+import ProfileComponent from "../components/Profile";
+import HomePageComponent from "../components/HomePage";
 
 class Prototype extends React.Component {
 
@@ -15,15 +17,23 @@ class Prototype extends React.Component {
                         path={"/"}
                         exact={true}
                         render={(props) =>
-                            <SigninComponent
+                            <HomePageComponent
                                 {...props}/>}
                     />
 
                     <Route
-                        path={"/signup"}
+                        path={"/login"}
                         exact={true}
                         render={(props) =>
-                            <SignupComponent
+                            <LoginComponent
+                                {...props}/>}
+                    />
+
+                    <Route
+                        path={"/register"}
+                        exact={true}
+                        render={(props) =>
+                            <RegisterComponent
                                 {...props}/>}
                     />
 
@@ -35,6 +45,13 @@ class Prototype extends React.Component {
                                 {...props}/>}
                     />
 
+                    <Route
+                        path={"/profile"}
+                        exact={true}
+                        render={(props) =>
+                            <ProfileComponent
+                                {...props}/>}
+                    />
 
                     <Route
                         path={"/search/:university"}
