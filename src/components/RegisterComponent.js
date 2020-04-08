@@ -20,7 +20,7 @@ class RegisterComponent extends React.Component{
 
     registerService = (user) =>
        register(user)
-           .then(newUser => this.props.history.push('/profile'));
+           .then(newUser => this.props.history.push('/forum'));
 
     render(){
         return(
@@ -100,6 +100,7 @@ class RegisterComponent extends React.Component{
                                         }}
                                         value={this.state.role}
                                     >
+                                        <option>Please selete your role</option>
                                         <option value="CURRENT">Current Student</option>
                                         <option value="POTENTIAL">Potential Student</option>
                                     </select>

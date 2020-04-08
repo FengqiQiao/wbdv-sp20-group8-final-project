@@ -48,8 +48,8 @@ class SearchContainer extends React.Component {
     render(){
         return (
             <div className="container">
-                <h1>Final Project</h1>
-                <h1>Home Page</h1>
+                {/*<h1>Final Project</h1>*/}
+                <h1 className="h1-black">Home Page</h1>
                 <li>
                     <a href="/login">login</a>
                 </li>
@@ -108,6 +108,140 @@ class SearchContainer extends React.Component {
                     <h3>Google Map</h3>
                 }
                 <div id="map"></div>
+                <div className="favourite-place place-padding">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <div className="section-tittle text-center">
+                                    <span>FEATURED OVERSEA STUDY FORUM</span>
+                                    <h2>Most Liked Universities</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                <div className="single-place mb-30">
+                                    <div className="place-img">
+                                        <img src={require("../constants/images/neu.jpg")} alt=""/>
+                                    </div>
+                                    <div className="place-cap mx-3">
+                                        <div className="place-cap-top">
+                                            <span><i className="fas fa-star"></i><span>4.5</span> </span>
+                                            <h3><a href="https://www.northeastern.edu/">Northeastern University</a></h3>
+                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                        </div>
+                                        <div className="place-cap-bottom">
+                                            <ul>
+                                                <li><i className="far fa-clock"></i>3 Days</li>
+                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                <div className="single-place mb-30">
+                                    <div className="place-img">
+                                        <img src={require("../constants/images/harvard.jpg")} alt=""/>
+                                    </div>
+                                    <div className="place-cap mx-3">
+                                        <div className="place-cap-top">
+                                            <span><i className="fas fa-star"></i><span>4.5</span> </span>
+                                            <h3><a href="https://www.harvard.edu/">Harvard University</a></h3>
+                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                        </div>
+                                        <div className="place-cap-bottom">
+                                            <ul>
+                                                <li><i className="far fa-clock"></i>3 Days</li>
+                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                <div className="single-place mb-30">
+                                    <div className="place-img">
+                                        <img src={require("../constants/images/stanford.jpg")} alt=""/>
+                                    </div>
+                                    <div className="place-cap mx-3">
+                                        <div className="place-cap-top">
+                                            <span><i className="fas fa-star"></i><span>4.6</span> </span>
+                                            <h3><a href="https://www.stanford.edu/">Stanford University</a></h3>
+                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                        </div>
+                                        <div className="place-cap-bottom">
+                                            <ul>
+                                                <li><i className="far fa-clock"></i>3 Days</li>
+                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                <div className="single-place mb-30">
+                                    <div className="place-img">
+                                        <img src={require("../constants/images/mit.jpg")} alt=""/>
+                                    </div>
+                                    <div className="place-cap mx-3">
+                                        <div className="place-cap-top">
+                                            <span><i className="fas fa-star"></i><span>4.7</span> </span>
+                                            <h3><a href="http://www.mit.edu/">MIT</a></h3>
+                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                        </div>
+                                        <div className="place-cap-bottom">
+                                            <ul>
+                                                <li><i className="far fa-clock"></i>3 Days</li>
+                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                <div className="single-place mb-30">
+                                    <div className="place-img">
+                                        <img src={require("../constants/images/uiuc.jpg")} alt=""/>
+                                    </div>
+                                    <div className="place-cap mx-3">
+                                        <div className="place-cap-top">
+                                            <span><i className="fas fa-star"></i><span>4.5</span> </span>
+                                            <h3><a href="https://illinois.edu/">UIUC</a></h3>
+                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                        </div>
+                                        <div className="place-cap-bottom">
+                                            <ul>
+                                                <li><i className="far fa-clock"></i>3 Days</li>
+                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                <div className="single-place mb-30">
+                                    <div className="place-img">
+                                        <img src={require("../constants/images/usc.jpg")} alt=""/>
+                                    </div>
+                                    <div className="place-cap mx-3">
+                                        <div className="place-cap-top">
+                                            <span><i className="fas fa-star"></i><span>4.5</span> </span>
+                                            <h3><a href="https://www.usc.edu/">USC</a></h3>
+                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                        </div>
+                                        <div className="place-cap-bottom">
+                                            <ul>
+                                                <li><i className="far fa-clock"></i>3 Days</li>
+                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
