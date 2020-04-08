@@ -4,7 +4,7 @@ import SearchContainer from "../components/SearchContainer";
 import RegisterComponent from "../components/RegisterComponent";
 import LoginComponent from "../components/LoginComponent";
 import ProfileComponent from "../components/Profile";
-import HomePageComponent from "../components/HomePage";
+import ForumComponent from "../components/ForumComponent";
 
 class Prototype extends React.Component {
 
@@ -17,7 +17,7 @@ class Prototype extends React.Component {
                         path={"/"}
                         exact={true}
                         render={(props) =>
-                            <HomePageComponent
+                            <SearchContainer
                                 {...props}/>}
                     />
 
@@ -37,19 +37,27 @@ class Prototype extends React.Component {
                                 {...props}/>}
                     />
 
-                    <Route
-                        path={"/search"}
-                        exact={true}
-                        render={(props) =>
-                            <SearchContainer
-                                {...props}/>}
-                    />
+                    {/*<Route*/}
+                    {/*    path={"/search"}*/}
+                    {/*    exact={true}*/}
+                    {/*    render={(props) =>*/}
+                    {/*        <SearchContainer*/}
+                    {/*            {...props}/>}*/}
+                    {/*/>*/}
 
                     <Route
                         path={"/profile"}
                         exact={true}
                         render={(props) =>
                             <ProfileComponent
+                                {...props}/>}
+                    />
+
+                    <Route
+                        path={"/forum"}
+                        exact={true}
+                        render={(props) =>
+                            <ForumComponent
                                 {...props}/>}
                     />
 

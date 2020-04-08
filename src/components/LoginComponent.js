@@ -13,7 +13,7 @@ class LoginComponent extends React.Component{
 
     loginService = (user) =>
         login(user)
-            .then(user => this.props.history.push('/search'));
+            .then(user => this.props.history.push('/forum'));
 
     render(){
         return(
