@@ -1,5 +1,6 @@
 import React from "react";
 
+// test
 class ForumComponent extends React.Component {
     render() {
         return(
