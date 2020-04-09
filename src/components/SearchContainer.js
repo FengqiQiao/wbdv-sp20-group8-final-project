@@ -56,6 +56,9 @@ class SearchContainer extends React.Component {
                 <li>
                     <a href="/register">register</a>
                 </li>
+                <li>
+                    <a href="/forum">forum</a>
+                </li>
                 <input type="text" className="form-control" placeholder="University Name" value={this.state.inputField}
                     onChange={(e) =>
                         this.setState({
@@ -80,9 +83,9 @@ class SearchContainer extends React.Component {
                                <div key={(new Date()).getTime()+""}>
                                    <div className="row">
                                        <div className="col-6">
-                                           <div className="data-font"><i className="fas fa-university"></i>&nbsp;{data.name}</div>
-                                           <div className="data-font"><i className="fas fa-map-marker-alt"></i>&nbsp;&nbsp;{data.formatted_address}</div>
-                                           <div className="data-font"><i className="fas fa-star"></i>&nbsp;Rating:&nbsp;{data.rating}</div>
+                                           <div className="data-font"><i className="fas fa-university"/>&nbsp;{data.name}</div>
+                                           <div className="data-font"><i className="fas fa-map-marker-alt"/>&nbsp;&nbsp;{data.formatted_address}</div>
+                                           <div className="data-font"><i className="fas fa-star"/>&nbsp;Rating:&nbsp;{data.rating}</div>
                                        </div>
                                    {/*{*/}
                                    {/*    data.photos &&*/}
@@ -114,7 +117,7 @@ class SearchContainer extends React.Component {
                             <div className="col-lg-12">
                                 <div className="section-tittle text-center">
                                     <span>FEATURED OVERSEA STUDY FORUM</span>
-                                    <h2>Most Liked Universities</h2>
+                                    <h2>Most Searched Universities</h2>
                                 </div>
                             </div>
                         </div>
@@ -124,16 +127,16 @@ class SearchContainer extends React.Component {
                                     <div className="place-img">
                                         <img src={require("../constants/images/neu.jpg")} alt=""/>
                                     </div>
-                                    <div className="place-cap mx-3">
+                                    <div className="place-cap mx-1">
                                         <div className="place-cap-top">
-                                            <span><i className="fas fa-star"></i><span>4.5</span> </span>
+                                            <span><i className="fas fa-star"/><span>4.5</span> </span>
                                             <h3><a href="https://www.northeastern.edu/">Northeastern University</a></h3>
-                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                            <p className="dolor">$1000 <span>/ Per Semester</span></p>
                                         </div>
                                         <div className="place-cap-bottom">
                                             <ul>
-                                                <li><i className="far fa-clock"></i>3 Days</li>
-                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                                <li><i className="far fa-clock"/>360 Huntington Ave</li>
+                                                <li><i className="fas fa-map-marker-alt"/>Boston</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -144,16 +147,16 @@ class SearchContainer extends React.Component {
                                     <div className="place-img">
                                         <img src={require("../constants/images/harvard.jpg")} alt=""/>
                                     </div>
-                                    <div className="place-cap mx-3">
+                                    <div className="place-cap mx-1">
                                         <div className="place-cap-top">
-                                            <span><i className="fas fa-star"></i><span>4.5</span> </span>
+                                            <span><i className="fas fa-star"/><span>4.5</span> </span>
                                             <h3><a href="https://www.harvard.edu/">Harvard University</a></h3>
-                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                            <p className="dolor">$1010 <span>/ Per Semester</span></p>
                                         </div>
                                         <div className="place-cap-bottom">
                                             <ul>
-                                                <li><i className="far fa-clock"></i>3 Days</li>
-                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                                <li><i className="far fa-clock"/>1585 Massachusetts Avenue</li>
+                                                <li><i className="fas fa-map-marker-alt"/>Cambridge</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -164,16 +167,16 @@ class SearchContainer extends React.Component {
                                     <div className="place-img">
                                         <img src={require("../constants/images/stanford.jpg")} alt=""/>
                                     </div>
-                                    <div className="place-cap mx-3">
+                                    <div className="place-cap mx-1">
                                         <div className="place-cap-top">
-                                            <span><i className="fas fa-star"></i><span>4.6</span> </span>
+                                            <span><i className="fas fa-star"/><span>4.6</span> </span>
                                             <h3><a href="https://www.stanford.edu/">Stanford University</a></h3>
-                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                            <p className="dolor">$1020 <span>/ Per Semester</span></p>
                                         </div>
                                         <div className="place-cap-bottom">
                                             <ul>
-                                                <li><i className="far fa-clock"></i>3 Days</li>
-                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                                <li><i className="far fa-clock"/>450 Serra Mall</li>
+                                                <li><i className="fas fa-map-marker-alt"/>Stanford</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -184,16 +187,16 @@ class SearchContainer extends React.Component {
                                     <div className="place-img">
                                         <img src={require("../constants/images/mit.jpg")} alt=""/>
                                     </div>
-                                    <div className="place-cap mx-3">
+                                    <div className="place-cap mx-1">
                                         <div className="place-cap-top">
-                                            <span><i className="fas fa-star"></i><span>4.7</span> </span>
+                                            <span><i className="fas fa-star"/><span>4.7</span> </span>
                                             <h3><a href="http://www.mit.edu/">MIT</a></h3>
-                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                            <p className="dolor">$1030 <span>/ Per Semester</span></p>
                                         </div>
                                         <div className="place-cap-bottom">
                                             <ul>
-                                                <li><i className="far fa-clock"></i>3 Days</li>
-                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                                <li><i className="far fa-clock"/>77 Massachusetts Ave</li>
+                                                <li><i className="fas fa-map-marker-alt"/>Cambridge</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -204,16 +207,16 @@ class SearchContainer extends React.Component {
                                     <div className="place-img">
                                         <img src={require("../constants/images/uiuc.jpg")} alt=""/>
                                     </div>
-                                    <div className="place-cap mx-3">
+                                    <div className="place-cap mx-1">
                                         <div className="place-cap-top">
-                                            <span><i className="fas fa-star"></i><span>4.5</span> </span>
+                                            <span><i className="fas fa-star"/><span>4.5</span> </span>
                                             <h3><a href="https://illinois.edu/">UIUC</a></h3>
-                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                            <p className="dolor">$1040 <span>/ Per Semester</span></p>
                                         </div>
                                         <div className="place-cap-bottom">
                                             <ul>
-                                                <li><i className="far fa-clock"></i>3 Days</li>
-                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                                <li><i className="far fa-clock"/>506 S. Wright St.</li>
+                                                <li><i className="fas fa-map-marker-alt"/>Champaign</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -224,16 +227,16 @@ class SearchContainer extends React.Component {
                                     <div className="place-img">
                                         <img src={require("../constants/images/usc.jpg")} alt=""/>
                                     </div>
-                                    <div className="place-cap mx-3">
+                                    <div className="place-cap mx-1">
                                         <div className="place-cap-top">
-                                            <span><i className="fas fa-star"></i><span>4.5</span> </span>
+                                            <span><i className="fas fa-star"/><span>4.5</span> </span>
                                             <h3><a href="https://www.usc.edu/">USC</a></h3>
-                                            <p className="dolor">$1870 <span>/ Per Person</span></p>
+                                            <p className="dolor">$1050 <span>/ Per Semester</span></p>
                                         </div>
                                         <div className="place-cap-bottom">
                                             <ul>
-                                                <li><i className="far fa-clock"></i>3 Days</li>
-                                                <li><i className="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                                <li><i className="far fa-clock"/>3551 Trousdale Pkwy</li>
+                                                <li><i className="fas fa-map-marker-alt"/>California</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -242,6 +245,24 @@ class SearchContainer extends React.Component {
                         </div>
                     </div>
                 </div>
+
+                {/*<div className="video-area video-bg pt-200 pb-200" data-background={require("../constants/images/neu.jpg")}>*/}
+                {/*    <div className="container">*/}
+                {/*        <div className="row">*/}
+                {/*            <div className="col-xl-12">*/}
+                {/*                <div className="video-caption text-center">*/}
+                {/*                    <div className="video-icon">*/}
+                {/*                        <a className="popup-video" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"*/}
+                {/*                           tabIndex="0"><i className="fas fa-play"></i></a>*/}
+                {/*                    </div>*/}
+                {/*                    <p className="pera1">Love where you're going in the perfect time</p>*/}
+                {/*                    <p className="pera2">Tripo is a World Leading Online</p>*/}
+                {/*                    <p className="pera3"> Tour Booking Platform</p>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         )
     }
