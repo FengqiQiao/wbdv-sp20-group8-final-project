@@ -22,7 +22,7 @@ class SearchContainer extends React.Component {
 
     search = (val) => {
         let isValid = 1;
-        fetch(` https://group8-final-project-java.herokuapp.com/api/checkvalid/${val}`)
+        fetch(` http://group8-final-project-java.herokuapp.com/api/checkvalid/${val}`)
             .then(response => response.json())
             .then(isValid => {
                 if (isValid === 1) {
