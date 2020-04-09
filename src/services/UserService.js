@@ -1,5 +1,5 @@
 export const register = (user) =>
-    fetch(`http://localhost:8080/register`,{
+    fetch(` https://group8-final-project-java.herokuapp.com/register`,{
         method: "POST",
         body: JSON.stringify(user),
         headers: {
@@ -9,7 +9,7 @@ export const register = (user) =>
     }).then(response => response.json());
 
 export const login = (user) =>
-    fetch(`http://localhost:8080/login`, {
+    fetch(`https://group8-final-project-java.herokuapp.com/login`, {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {
@@ -19,7 +19,7 @@ export const login = (user) =>
     }).then(response => response.json());
 
 export const profile = () =>
-    fetch(`http://localhost:8080/profile`, {
+    fetch(`https://group8-final-project-java.herokuapp.com/profile`, {
         method: 'POST',
         // headers: {
         //     'content-type': 'application/json'
@@ -28,7 +28,7 @@ export const profile = () =>
     }).then(response => response.json());
 
 export const logout = () =>
-    fetch(`http://localhost:8080/logout`, {
+    fetch(`https://group8-final-project-java.herokuapp.com/logout`, {
         method: 'POST',
         credentials: "include"
     });
