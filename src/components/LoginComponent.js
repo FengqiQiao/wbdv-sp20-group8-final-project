@@ -13,8 +13,14 @@ class LoginComponent extends React.Component{
 
     loginService = (user) =>
         login(user)
-            .then(user => this.props.history.push('/forum'));
-
+            .then(status => {
+                console.log("login response:", status);
+                if (status === 200)
+                    this.props.history.push('/forum');
+                else
+                    alert("login failure")});
+// error message: status code: 500 {"timestamp":"2020-04-18T00:22:47.159+0000","status":500,"error":"Internal Server Error","message":"No message available","path":"/login"}
+// successful login: status code: 200
     render(){
         return(
             <div className="sign-in">

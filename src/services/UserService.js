@@ -16,7 +16,7 @@ export const login = (user) =>
             'content-type': 'application/json'
         },
         credentials: "include"
-    }).then(response => response.json());
+    }).then(response => response.status);
 
 export const profile = () =>
     fetch(`https://group8-final-project-java.herokuapp.com/profile`, {
