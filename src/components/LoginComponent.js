@@ -21,6 +21,7 @@ class LoginComponent extends React.Component{
                     alert("login failure")});
 // error message: status code: 500 {"timestamp":"2020-04-18T00:22:47.159+0000","status":500,"error":"Internal Server Error","message":"No message available","path":"/login"}
 // successful login: status code: 200
+
     render(){
         return(
             <div className="sign-in">

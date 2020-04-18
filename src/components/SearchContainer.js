@@ -1,22 +1,52 @@
 import React from "react";
 import './Prototype.css'
 import PhotoComponent from "./photo";
+import {Link} from "react-router-dom";
+import {profile} from "../services/UserService";
 
 class SearchContainer extends React.Component {
     state = {
         university: [],
         inputField: '',
-        show: false
+        inputFieldForum: '',
+        // searchStatus: '',
+        searchResponse: '',
+        loginStatus: 0,
+        profile:'',
+        show: false,
+        clickSearch: false
     };
 
     componentDidMount() {
-        if(this.props.university)
-            this.search(this.props.university)
+        fetch(`https://group8-final-project-java.herokuapp.com/profile`, {
+            method: 'POST',
+            credentials: "include"
+        })
+            .then(profile =>
+                {
+                    console.log("profile status:", profile.status);
+                    this.setState({
+                        profile: profile.json(),
+                        loginStatus: profile.status
+                    });
+                    if(this.props.university) {
+                        this.search(this.props.university)
+                        this.setState({
+                            inputField : this.props.university,
+                            inputFieldForum : this.props.university
+                        })
+                    }
+                }
+            )
+
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.university !== prevProps.university) {
             this.search(this.props.university)
+            this.setState({
+                searchResponse: 0,
+            })
         }
     }
 
@@ -25,16 +55,25 @@ class SearchContainer extends React.Component {
         fetch(` https://group8-final-project-java.herokuapp.com/api/checkvalid/${val}`)
             .then(response => response.json())
             .then(isValid => {
+                this.setState({
+                    searchResponse: isValid
+                });
                 if (isValid === 1) {
                     let proxy = "https://sleepy-reef-18653.herokuapp.com/";
                     // let proxy = "http://remote.server.com:8085/service";
                     fetch(proxy + `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${val}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=AIzaSyC1ucluPOje2LzYoF5hnN2M9PvnKSYurQg`)
-                        .then(response => response.json())
-                        .then(results => {
+                        .then(response => {
+                            // this.setState({
+                            //     searchStatus: response.status
+                            // });
+                            return response.json();
+                        })
+                        .then((results) => {
                             console.log(results.candidates);
+                            console.log("search response:", this.state.searchResponse);
                             this.setState({
                                 university: results.candidates,
-                                show: true
+                                show: true,
                             });
                             if (this.state.university.length !== 0)
                                 window.initMap(this.state.university[0].geometry.location.lat, this.state.university[0].geometry.location.lng)
@@ -51,22 +90,43 @@ class SearchContainer extends React.Component {
                 {/*<h1>Final Project</h1>*/}
                 <h1 className="h1-black">Home Page</h1>
                 <li>
-                    <a href="/login">login</a>
+                    {
+                        this.state.loginStatus !== 200 &&
+                        <Link to="/login">login</Link>
+                    }
+                    {
+                        this.state.loginStatus === 200 &&
+                        <Link onClick={() => alert("already login")}>login</Link>
+                    }
+                    {/*<a href="/login">login</a>*/}
                 </li>
                 <li>
-                    <a href="/register">register</a>
+                    {
+                        this.state.loginStatus !== 200 &&
+                        <Link to="/register">register</Link>
+                    }
+                    {
+                        this.state.loginStatus === 200 &&
+                        <Link onClick={() => alert("already login")}>register</Link>
+                    }
+                    {/*<a href="/register">register</a>*/}
                 </li>
-                <li>
-                    <a href="/forum">forum</a>
-                </li>
-                <input type="text" className="form-control" placeholder="University Name" value={this.state.inputField}
+                {/*<li>*/}
+                {/*    <a href="/forum">forum</a>*/}
+                {/*</li>*/}
+                <input type="text" className="form-control" placeholder="University Name"
                     onChange={(e) =>
                         this.setState({
                             inputField: e.target.value
                         })
-                    }/>
+                    }
+                       value={this.state.inputField}/>
                 <div className="search-btn">
                     <button className="form-control btn-primary" onClick={()=>{
+                        this.setState({
+                            clickSearch: true,
+                            inputFieldForum: this.state.inputField
+                        });
                         this.props.history.push(`/search/${this.state.inputField}`)
                         //this.search(this.state.inputField)
                     }}>Search</button>
@@ -86,6 +146,25 @@ class SearchContainer extends React.Component {
                                            <div className="data-font"><i className="fas fa-university"/>&nbsp;{data.name}</div>
                                            <div className="data-font"><i className="fas fa-map-marker-alt"/>&nbsp;&nbsp;{data.formatted_address}</div>
                                            <div className="data-font"><i className="fas fa-star"/>&nbsp;Rating:&nbsp;{data.rating}</div>
+                                           {/*<div>clicksearch{`${this.state.clickSearch === true ? 1 : 0}`}</div>*/}
+                                           {/*<div>searchresponse{this.state.searchResponse}</div>*/}
+                                           {
+
+                                                   // console.log(this.state.clickSearch)
+                                               // console.log(this.state.serchResponse);
+
+                                               this.state.searchResponse === 1 &&
+                                               <div className="data-font"><i className="fab fa-forumbee"/>&nbsp;&nbsp;
+                                                   {
+                                                       this.state.loginStatus === 200 &&
+                                                       <Link to="/forum">Forum for {this.state.inputFieldForum}</Link>
+                                                   }
+                                                   {
+                                                       this.state.loginStatus === 500 &&
+                                                       <Link to="/login">Forum for {this.state.inputFieldForum}</Link>
+                                                   }
+                                               </div>
+                                           }
                                        </div>
                                    {/*{*/}
                                    {/*    data.photos &&*/}
