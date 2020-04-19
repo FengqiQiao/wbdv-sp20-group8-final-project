@@ -3,6 +3,7 @@ import './Prototype.css'
 import PhotoComponent from "./photo";
 import {Link} from "react-router-dom";
 import 'bootstrap/js/dist/dropdown'
+import 'bootstrap/js/dist/collapse'
 import {logout, profile} from "../services/UserService";
 
 class SearchContainer extends React.Component {
