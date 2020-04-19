@@ -1,6 +1,7 @@
 import React from "react";
 import "./Prototype.css"
 import {login} from "../services/UserService";
+import {Link} from "react-router-dom";
 
 class LoginComponent extends React.Component{
     state = {
@@ -11,12 +12,15 @@ class LoginComponent extends React.Component{
     };
 
 
-    loginService = (user) =>
+    loginService = (user, dest) =>
         login(user)
             .then(status => {
                 console.log("login response:", status);
                 if (status === 200)
-                    this.props.history.push('/forum');
+                    if (dest !== undefined)
+                        this.props.history.push(`/search/${dest}`);
+                    else
+                        this.props.history.push("/");
                 else
                     alert("login failure")});
 // error message: status code: 500 {"timestamp":"2020-04-18T00:22:47.159+0000","status":500,"error":"Internal Server Error","message":"No message available","path":"/login"}
@@ -29,7 +33,7 @@ class LoginComponent extends React.Component{
                     <div className="signin-content">
                         <div className="signin-image">
                             <figure><img src={require("../constants/images/signin-image.jpg")} alt="sing up image"/></figure>
-                            <a href="/register" className="signup-image-link"><h6><u><b><i>Create an account</i></b></u></h6></a>
+                            <Link to={`/register/${this.props.dest}`} className="signup-image-link"><h6><u><b><i>Create an account</i></b></u></h6></Link>
                         </div>
 
                         <div className="signin-form">
@@ -94,7 +98,7 @@ class LoginComponent extends React.Component{
                                 </div>
                                 <div className="form-group form-button">
                                     <input
-                                        onClick={() => this.loginService(this.state.user)}
+                                        onClick={() => this.loginService(this.state.user, this.props.dest)}
                                         type="button"
                                         name="signin"
                                         id="signin"

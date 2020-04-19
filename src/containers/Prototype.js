@@ -30,6 +30,15 @@ class Prototype extends React.Component {
                     />
 
                     <Route
+                        path={"/login/:dest"}
+                        exact={true}
+                        render={(props) =>
+                            <LoginComponent
+                                dest={props.match.params.dest}
+                                {...props}/>}
+                    />
+
+                    <Route
                         path={"/register"}
                         exact={true}
                         render={(props) =>
@@ -37,6 +46,14 @@ class Prototype extends React.Component {
                                 {...props}/>}
                     />
 
+                    <Route
+                        path={"/register/:dest"}
+                        exact={true}
+                        render={(props) =>
+                            <RegisterComponent
+                                dest={props.match.params.dest}
+                                {...props}/>}
+                    />
                     {/*<Route*/}
                     {/*    path={"/search"}*/}
                     {/*    exact={true}*/}

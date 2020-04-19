@@ -1,3 +1,12 @@
+.info-color{
+    background-color: #00A8FF;
+}
+
+
+.nav-topic {
+    font-weight: bold;
+    font-family: "fantasy";
+}
 
 .flex{
     display: flex;
@@ -3078,3 +3087,12 @@ a.down:hover {
     color: black;
 }
 
+
+.warning input {
+    border-color: #e72734;
+    border-width: 2px;
+}
+.warning.role-border {
+    border-color: #e72734;
+    border-width: 2px;
+}
