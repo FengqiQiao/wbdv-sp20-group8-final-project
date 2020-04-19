@@ -31,11 +31,11 @@ class ProfileComponent extends React.Component{
                                     })
                                 // console.log(profile)
                             );
-                    else
-                    {
-                        this.props.history.push('/');
-                        alert("You are not logged in, can not view profile, please login first!")
-                    }
+                    // else
+                    // {
+                    //     this.props.history.push('/');
+                    //     // alert("You are not logged in, can not view profile, please login first!")
+                    // }
                 }
 
             )
@@ -75,7 +75,15 @@ class ProfileComponent extends React.Component{
         }
         else{
             return (
-                <h1>Not logged in</h1>
+                <div id="notfound">
+                    <div className="notfound">
+                        <div className="notfound-404">
+                            <h1>Oops!</h1>
+                            <h2>You are not logged in, can't view your profile </h2>
+                        </div>
+                        <Link to="/login">Go TO Login Page</Link>
+                    </div>
+                </div>
             )
         }
 
