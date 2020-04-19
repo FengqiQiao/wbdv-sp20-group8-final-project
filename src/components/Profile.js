@@ -1,5 +1,6 @@
 import React from "react";
 import {logout, profile} from "../services/UserService";
+import {Link} from "react-router-dom";
 
 class ProfileComponent extends React.Component{
     state = {
@@ -32,7 +33,12 @@ class ProfileComponent extends React.Component{
         return(
             <div>
                 <h1>profile</h1>
-                <span>Hi {this.state.profile.username}!</span>
+                <ul className="list-group">
+                    <li className="list-group-item">Hi {this.state.profile.username}!</li>
+                    <li className="list-group-item">Email: {this.state.profile.email}!</li>
+                    <li className="list-group-item">Password: {this.state.profile.password}</li>
+                    <li className="list-group-item">FirstName: {this.state.profile.firstName}</li>
+                </ul>
                 <button
                     onClick={this.logout}
                     className={`btn btn-danger`}>
