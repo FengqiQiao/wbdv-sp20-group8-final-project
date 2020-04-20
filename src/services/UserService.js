@@ -32,3 +32,13 @@ export const logout = () =>
         method: 'POST',
         credentials: "include"
     });
+
+export const update = (user) =>
+    fetch(`https://group8-final-project-java.herokuapp.com/updateUser`,{
+        method: 'PUT',
+        body: JSON.stringify(user),
+        headers: {
+            'content-type': 'application/json'
+        },
+        credentials: "include"
+    }).then(response => response.json());
