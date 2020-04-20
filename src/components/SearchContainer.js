@@ -217,7 +217,7 @@ class SearchContainer extends React.Component {
                                                    <div className="data-font"><i className="fab fa-forumbee"/>&nbsp;&nbsp;
                                                        {
                                                            this.state.loginStatus === 200 &&
-                                                           <Link to="/forum">Forum for {this.state.inputFieldForum}</Link>
+                                                           <Link to={`/forum/${this.state.inputFieldForum}`}>Forum for {this.state.inputFieldForum}</Link>
                                                        }
                                                        {
                                                            this.state.loginStatus === 500 &&

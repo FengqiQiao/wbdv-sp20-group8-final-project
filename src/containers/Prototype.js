@@ -71,10 +71,11 @@ class Prototype extends React.Component {
                     />
 
                     <Route
-                        path={"/forum"}
+                        path={"/forum/:dest"}
                         exact={true}
                         render={(props) =>
                             <ForumComponent
+                                dest = {props.match.params.dest}
                                 {...props}/>}
                     />
 

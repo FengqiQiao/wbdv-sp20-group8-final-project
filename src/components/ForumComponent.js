@@ -1,17 +1,46 @@
 import React from "react";
+import {profile} from "../services/UserService";
+import {Link} from "react-router-dom";
+import {findUniversityByName} from "../services/UniversityService";
 
 // test
 class ForumComponent extends React.Component {
+
+    componentDidMount() {
+        profile()
+            .then( profile  => this.setState({
+                profile: profile
+            }))
+        findUniversityByName(this.props.dest)
+            .then(university => {
+                this.setState({
+                university: university})
+                console.log(university)
+            })
+    }
+
+
+
+    state = {
+        university: {
+            imgURL: ''
+        },
+        profile: {
+            role: '',
+            major: '',
+            gpa: 4.0,
+            educationLevel: '',
+            currentSchool: ''
+        }
+    }
+
+
     render() {
         return(
             <div className="container-fluid">
                 <div className="tp-banner-container">
                     <div className="tp-banner">
-                        <ul>
-                            <li>
-                                <img src={require("../constants/images/NEU.jpeg")} height="400" className="headerImage"/>
-                            </li>
-                        </ul>
+                        <img src={this.state.university.imgURL} height="400" className="headerImage"/>
                     </div>
                 </div>
 
@@ -22,7 +51,7 @@ class ForumComponent extends React.Component {
                                 href="index.html"><img src="images/logo.jpg" alt=""/></a></div>
                             <div className="col-lg-3 col-xs-9 col-sm-5 col-md-3 selecttopic">
                                 <div className="dropdown">
-                                    <a data-toggle="dropdown" href="#">Northeastern University</a> <b
+                                    <a data-toggle="dropdown" href="#">{this.props.dest}</a> <b
                                     className="caret"></b>
                                     {/*<ul className="dropdown-menu" role="menu">*/}
                                     {/*    <li role="presentation"><a role="menuitem" tabIndex="-1"*/}
@@ -184,17 +213,20 @@ class ForumComponent extends React.Component {
                         <div class="col-lg-4 col-md-4">
 
                             <div class="sidebarblock">
-                                <h3>Student Profile</h3>
+                                <h3>Student Profile<Link to="/profile"><i className="fa fa-edit float-right"/></Link></h3>
                                 <div class="divline"></div>
                                 <div class="blocktxt">
                                     <ul class="cats">
-                                        <li><a>Status: <span class="badge pull-right">Current Student</span></a></li>
-                                        <li><a>Major: <span class="badge pull-right">Computer Science</span></a></li>
-                                        <li><a>GPA: <span class="badge pull-right">3.88</span></a></li>
-                                        <li><a>Education Level: <span class="badge pull-right">Master</span></a></li>
-                                        <li><a>Expected Graduation Year: <span class="badge pull-right">2021</span></a></li>
+                                        <li><a>Role: <span class="badge pull-right">{this.state.profile.role}&nbsp;STUDENT</span></a></li>
+                                        <li><a>Major: <span class="badge pull-right">{this.state.profile.major}</span></a></li>
+                                        <li><a>GPA: <span class="badge pull-right">{this.state.profile.gpa}</span></a></li>
+                                        <li><a>Education Level: <span class="badge pull-right">{this.state.profile.educationLevel}</span></a></li>
+                                        <li><a>Current School: <span class="badge pull-right">{this.state.profile.currentSchool}</span></a></li>
+
                                     </ul>
+
                                 </div>
+
                             </div>
 
                             <div class="sidebarblock">

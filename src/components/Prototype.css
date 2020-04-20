@@ -1988,7 +1988,7 @@ ul.socialicons li a:hover {
 }
 
 .headernav .search .txt {
-    width: 85%;
+    width: 80%;
 }
 
 .headernav .search input {
@@ -2155,7 +2155,6 @@ ul.socialicons li a:hover {
     font-family: 'Open Sans Bold', sans-serif;
     margin: 0;
     padding: 20px;
-
 
 }
 
@@ -3446,3 +3445,4 @@ input {
 .wbdv-field {
     padding: 10px;
 }
+
