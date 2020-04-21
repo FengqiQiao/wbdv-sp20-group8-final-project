@@ -28,3 +28,9 @@ export const createQuestion = (universityName,newQuestion) =>
 export const findQuestionById = (qid) =>
     fetch(`${API_URL}/api/questions/${qid}`)
         .then(res => res.json());
+
+export const deleteQuestion = (qid) =>
+    fetch(`${API_URL}/api/questions/${qid}`,{
+        method: "DELETE"
+    }).then(response => response.json())
+

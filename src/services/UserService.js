@@ -16,7 +16,7 @@ export const login = (user) =>
             'content-type': 'application/json'
         },
         credentials: "include"
-    }).then(response => response.status);
+    }).then(response => response);
 
 export const profile = () =>
     fetch(`http://localhost:8080/profile`, {

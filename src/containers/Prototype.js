@@ -5,6 +5,8 @@ import RegisterComponent from "../components/RegisterComponent";
 import LoginComponent from "../components/LoginComponent";
 import ProfileComponent from "../components/Profile";
 import ForumComponent from "../components/ForumComponent";
+import AdminComponent from "../components/AdminComponent";
+import AdminAnswersComponent from "../components/AdminAnswersComponent";
 
 class Prototype extends React.Component {
 
@@ -67,6 +69,23 @@ class Prototype extends React.Component {
                         exact={true}
                         render={(props) =>
                             <ProfileComponent
+                                {...props}/>}
+                    />
+
+                    <Route
+                        path={"/admin"}
+                        exact={true}
+                        render={(props) =>
+                            <AdminComponent
+                                {...props}/>}
+                    />
+
+                    <Route
+                        path={"/admin/questions/:qid/answers"}
+                        exact={true}
+                        render={(props) =>
+                            <AdminAnswersComponent
+                                qid={props.match.params.qid}
                                 {...props}/>}
                     />
 

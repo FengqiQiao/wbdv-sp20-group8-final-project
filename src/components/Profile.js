@@ -414,6 +414,11 @@ class ProfileComponent extends React.Component{
                                 >
                                     update
                                 </button>
+                                <Link to="/">
+                                    <button className="form-control btn home-page-button">
+                                        Back
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
