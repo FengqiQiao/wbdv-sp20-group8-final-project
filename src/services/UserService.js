@@ -41,4 +41,12 @@ export const update = (user) =>
             'content-type': 'application/json'
         },
         credentials: "include"
-    }).then(response => response.json());
+    })
+        .then(res => res.json())
+        .then(status => {
+            if(status === 0)
+                return status
+            else
+                return login(user)
+        })
+        .then(res => res.json);

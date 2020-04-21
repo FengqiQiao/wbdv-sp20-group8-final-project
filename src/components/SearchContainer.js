@@ -4,6 +4,7 @@ import PhotoComponent from "./photo";
 import {Link} from "react-router-dom";
 import 'bootstrap/js/dist/dropdown'
 import 'bootstrap/js/dist/collapse'
+// import  "bootstrap-table/dist/bootstrap-table.min"
 import {logout, profile} from "../services/UserService";
 
 class SearchContainer extends React.Component {

@@ -68,12 +68,12 @@ class ProfileComponent extends React.Component{
         // alert("触发")
         update(user)
             .then(status => {
-                // if (status === 1){
-                //     alert("successfully updated");
-                // }
-                // else
-                //     alert("server error")
-                alert(status)
+                if (status !== 0){
+                    alert("successfully updated");
+                }
+                else
+                    alert("server error")
+                // alert(status)
                 profile()
                     .then(res => {
                         console.log(res)
@@ -408,7 +408,7 @@ class ProfileComponent extends React.Component{
                                 <button
                                     onClick={() => {
                                         this.updateProfile(this.state.profile)
-                                        this.props.history.push("/")
+                                            .then(res => console.log(res))
                                     }}
                                     className="form-control btn btn-success"
                                 >
