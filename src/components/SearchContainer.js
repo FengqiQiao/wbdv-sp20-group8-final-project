@@ -183,7 +183,7 @@ class SearchContainer extends React.Component {
                     {/*<li>*/}
                     {/*    <a href="/forum">forum</a>*/}
                     {/*</li>*/}
-                    <input type="text" className="form-control" placeholder="University Name"
+                    <input type="text" className="form-control" placeholder="University Name (ex: neu mit harvard usc uiuc stanford)"
                         onChange={(e) =>
                             this.setState({
                                 inputField: e.target.value
