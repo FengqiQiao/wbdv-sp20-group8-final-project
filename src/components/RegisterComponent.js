@@ -79,7 +79,7 @@ class RegisterComponent extends React.Component{
     }
 
     usernameRegisterCheck = (username) =>
-        fetch(` https://group8-final-project-java.herokuapp.com/usernameCheck/${username}`,{
+        fetch(` http://localhost:8080/usernameCheck/${username}`,{
             method: "GET",
             credentials: "include"
         }).then(result => result.json());

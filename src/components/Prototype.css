@@ -3549,4 +3549,11 @@ input {
     }
 }
 
+.post-answer{
+    margin-top: 15px;
+}
 
+.answer-font{
+    font-weight: bold;
+    font-size: 20px;
+}

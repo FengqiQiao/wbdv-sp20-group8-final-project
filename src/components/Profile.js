@@ -6,6 +6,7 @@ import "./Prototype.css";
 class ProfileComponent extends React.Component{
     state = {
         profile: {
+            id: "",
             email: '',
             username: '',
             password: '',
@@ -22,19 +23,21 @@ class ProfileComponent extends React.Component{
             toefl: 120,
             gre: 340,
             researchExperience: '',
-            workingExperience: ''
+            workingExperience: '',
+            questions: [],
+            answers: []
         },
         loginStatus: 0
     };
 
     componentDidMount = () => {
-        fetch(`https://group8-final-project-java.herokuapp.com/profile`, {
+        fetch(`http://localhost:8080/profile`, {
             method: 'POST',
             credentials: "include"
         })
             .then(async currentProfile =>
                 {
-                    console.log("login status from profile page:", currentProfile.status);
+                    console.log("login status from profile page:", currentProfile.status,currentProfile);
                     await this.loginSetState(currentProfile);
                     if (this.state.loginStatus === 200)
                         profile()
@@ -48,7 +51,6 @@ class ProfileComponent extends React.Component{
                 }
 
             )
-
     };
 
     loginSetState = (profile) =>
@@ -66,10 +68,19 @@ class ProfileComponent extends React.Component{
         // alert("触发")
         update(user)
             .then(status => {
-                if (status === 1)
-                    alert("successfully updated");
-                else
-                    alert("server error")
+                // if (status === 1){
+                //     alert("successfully updated");
+                // }
+                // else
+                //     alert("server error")
+                alert(status)
+                profile()
+                    .then(res => {
+                        console.log(res)
+                        this.setState({
+                        profile: res
+                    })}
+                    )
             });
 
 
@@ -395,7 +406,10 @@ class ProfileComponent extends React.Component{
                                     </div>
                                 </div>
                                 <button
-                                    onClick={() => this.updateProfile(this.state.profile)}
+                                    onClick={() => {
+                                        this.updateProfile(this.state.profile)
+                                        this.props.history.push("/")
+                                    }}
                                     className="form-control btn btn-success"
                                 >
                                     update

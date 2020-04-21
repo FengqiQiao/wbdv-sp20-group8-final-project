@@ -71,10 +71,21 @@ class Prototype extends React.Component {
                     />
 
                     <Route
-                        path={"/forum"}
+                        path={"/forum/:universityName"}
                         exact={true}
                         render={(props) =>
                             <ForumComponent
+                                universityName={props.match.params.universityName}
+                                {...props}/>}
+                    />
+
+                    <Route
+                        path={"/forum/:universityName/questions/:qid/answers"}
+                        exact={true}
+                        render={(props) =>
+                            <ForumComponent
+                                universityName={props.match.params.universityName}
+                                qid={props.match.params.qid}
                                 {...props}/>}
                     />
 

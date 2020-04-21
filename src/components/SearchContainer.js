@@ -20,7 +20,7 @@ class SearchContainer extends React.Component {
     };
 
     componentDidMount() {
-        fetch(`https://group8-final-project-java.herokuapp.com/profile`, {
+        fetch(`http://localhost:8080/profile`, {
             method: 'POST',
             credentials: "include"
         })
@@ -66,7 +66,7 @@ class SearchContainer extends React.Component {
 
     search = (val) => {
         let isValid = 1;
-        fetch(` https://group8-final-project-java.herokuapp.com/api/checkvalid/${val}`)
+        fetch(` http://localhost:8080/api/checkvalid/${val}`)
             .then(response => response.json())
             .then(isValid => {
                 this.setState({
@@ -217,7 +217,7 @@ class SearchContainer extends React.Component {
                                                    <div className="data-font"><i className="fab fa-forumbee"/>&nbsp;&nbsp;
                                                        {
                                                            this.state.loginStatus === 200 &&
-                                                           <Link to="/forum">Forum for {this.state.inputFieldForum}</Link>
+                                                           <Link to={`/forum/${this.state.inputFieldForum}`}>Forum for {this.state.inputFieldForum}</Link>
                                                        }
                                                        {
                                                            this.state.loginStatus === 500 &&
