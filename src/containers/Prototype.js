@@ -7,6 +7,7 @@ import ProfileComponent from "../components/Profile";
 import ForumComponent from "../components/ForumComponent";
 import AdminComponent from "../components/AdminComponent";
 import AdminAnswersComponent from "../components/AdminAnswersComponent";
+import PrivacyPolicyComponent from "../components/PrivacyPolicyComponent";
 
 class Prototype extends React.Component {
 
@@ -45,6 +46,14 @@ class Prototype extends React.Component {
                         exact={true}
                         render={(props) =>
                             <RegisterComponent
+                                {...props}/>}
+                    />
+
+                    <Route
+                        path={"/privacy-policy"}
+                        exact={true}
+                        render={(props) =>
+                            <PrivacyPolicyComponent
                                 {...props}/>}
                     />
 

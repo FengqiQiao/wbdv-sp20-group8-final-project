@@ -1,5 +1,7 @@
+import {API_URL} from "../constants/costants";
+
 export const register = (user) =>
-    fetch(` http://localhost:8080/register`,{
+    fetch(`${API_URL}/api/register`,{
         method: "POST",
         body: JSON.stringify(user),
         headers: {
@@ -9,7 +11,7 @@ export const register = (user) =>
     }).then(response => response.json());
 
 export const login = (user) =>
-    fetch(`http://localhost:8080/login`, {
+    fetch(`${API_URL}/api/login`, {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {
@@ -19,7 +21,7 @@ export const login = (user) =>
     }).then(response => response);
 
 export const profile = () =>
-    fetch(`http://localhost:8080/profile`, {
+    fetch(`${API_URL}/api/profile`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -28,13 +30,13 @@ export const profile = () =>
     }).then(response => response.json());
 
 export const logout = () =>
-    fetch(`http://localhost:8080/logout`, {
+    fetch(`${API_URL}/api/logout`, {
         method: 'POST',
         credentials: "include"
     });
 
 export const update = (user) =>
-    fetch(`http://localhost:8080/updateUser`,{
+    fetch(`${API_URL}/api/updateUser`,{
         method: 'PUT',
         body: JSON.stringify(user),
         headers: {

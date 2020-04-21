@@ -1,6 +1,7 @@
 import React from "react";
 import "./Prototype.css"
 import {register} from "../services/UserService";
+import {API_URL} from "../constants/costants";
 
 class RegisterComponent extends React.Component{
     state = {
@@ -79,7 +80,7 @@ class RegisterComponent extends React.Component{
     }
 
     usernameRegisterCheck = (username) =>
-        fetch(` http://localhost:8080/usernameCheck/${username}`,{
+        fetch(`${API_URL}/api/usernameCheck/${username}`,{
             method: "GET",
             credentials: "include"
         }).then(result => result.json());

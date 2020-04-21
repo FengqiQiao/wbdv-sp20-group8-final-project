@@ -2,6 +2,7 @@ import React from "react";
 import {logout, profile, update} from "../services/UserService";
 import {Link} from "react-router-dom";
 import "./Prototype.css";
+import {API_URL} from "../constants/costants";
 
 class ProfileComponent extends React.Component{
     state = {
@@ -31,7 +32,7 @@ class ProfileComponent extends React.Component{
     };
 
     componentDidMount = () => {
-        fetch(`http://localhost:8080/profile`, {
+        fetch(`${API_URL}/api/profile`, {
             method: 'POST',
             credentials: "include"
         })

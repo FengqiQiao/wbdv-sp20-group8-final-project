@@ -189,7 +189,8 @@ input[type=radio] {
     -moz-appearance: radio !important;
     -webkit-appearance: radio !important;
     -o-appearance: radio !important;
-    -ms-appearance: radio !important; }
+    -ms-appearance: radio !important;
+    }
 
 img {
     max-width: 100%;
@@ -3599,4 +3600,28 @@ input {
     font-weight: bold;
     /*font-style: italic;*/
     text-decoration: underline;
+}
+
+.text-private{
+    text-align:justify;
+    /*text-indent: 2em;*/
+}
+
+.text-private p {
+    color: black;
+}
+
+.privacy-radio{
+    display: inline!important;
+    width: auto!important;
+}
+
+.privacy-btn{
+    margin-top: 10px;
+    background-color: #dcd8da;
+    border-radius: 5px;
+}
+
+.privacy-btn:hover{
+    background-color: #b4b0b2;
 }

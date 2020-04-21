@@ -28,7 +28,8 @@ class ForumComponent extends React.Component {
         multipleAnswer: false,
         question: '',
         questions: [],
-        answers: []
+        answers: [],
+        // answerNumber: 0
     };
 
     componentDidMount() {
@@ -121,6 +122,11 @@ class ForumComponent extends React.Component {
         else
             alert("answer content can not be empty")
     }
+    //
+    // service1 = (qid) =>
+    //     findAnswersForQuestion(qid)
+    //         .then(res => res.length)
+
     render() {
         return(
             <div className="container-fluid">
@@ -224,40 +230,42 @@ class ForumComponent extends React.Component {
                                 {
                                     !this.state.askingQuestion &&  !this.state.multipleAnswer && this.state.questions
                                         && this.state.questions.map(question =>
-                                        <div className="post form-inline" key={question.id}>
-                                            <div className="wrap-ut pull-left">
-                                                <div className="mx-5 my-5">
-                                                    <h2>
-                                                        <Link
-                                                            to={`/forum/${this.props.universityName}/questions/${question.id}/answers`}
-                                                            // onClick={() => {this.setState({
-                                                            //     multipleAnswer: true,
-                                                            // });
-                                                            // // this.findQuestionId(question.id)
-                                                            // }}
-                                                        >
-                                                            {question.questionTitle}
-                                                        </Link>
-                                                    </h2>
-                                                    <hr/>
-                                                    <p>{question.questionContent}
-                                                    </p>
+                                           // let num = this.service1(question.id)
+                                             <div className="post form-inline" key={question.id}>
+                                                <div className="wrap-ut pull-left">
+                                                    <div className="mx-5 my-5">
+                                                        <h2>
+                                                            <Link
+                                                                to={`/forum/${this.props.universityName}/questions/${question.id}/answers`}
+                                                                // onClick={() => {this.setState({
+                                                                //     multipleAnswer: true,
+                                                                // });
+                                                                // // this.findQuestionId(question.id)
+                                                                // }}
+                                                            >
+                                                                {question.questionTitle}
+                                                            </Link>
+                                                        </h2>
+                                                        <hr/>
+                                                        <p>{question.questionContent}
+                                                        </p>
+                                                    </div>
+                                                    <div className="clearfix"></div>
+                                                </div>
+                                                <div className="postinfo pull-left">
+                                                    <div className="comments">
+                                                        <div className="commentbg">
+                                                            100
+                                                            <div className="mark"></div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div className="views"><i className="fa fa-eye"/> 1,568</div>
+                                                    <div className="time"><i className="fa fa-clock"/>&nbsp;{question.time}
+                                                    </div>
                                                 </div>
                                                 <div className="clearfix"></div>
                                             </div>
-                                            <div className="postinfo pull-left">
-                                                <div className="comments">
-                                                    <div className="commentbg">
-                                                        560
-                                                        <div className="mark"></div>
-                                                    </div>
-
-                                                </div>
-                                                <div className="views"><i className="fa fa-eye"/> 1,568</div>
-                                                <div className="time"><i className="fa fa-clock"/>&nbsp;{question.time}</div>
-                                            </div>
-                                            <div className="clearfix"></div>
-                                        </div>
                                     )
                                 }
 
@@ -313,7 +321,7 @@ class ForumComponent extends React.Component {
                                             <div className="postinfo pull-left">
                                                 <div className="comments">
                                                     <div className="commentbg">
-                                                        560
+
                                                         <div className="mark"></div>
                                                     </div>
 

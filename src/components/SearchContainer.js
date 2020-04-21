@@ -6,6 +6,7 @@ import 'bootstrap/js/dist/dropdown'
 import 'bootstrap/js/dist/collapse'
 // import  "bootstrap-table/dist/bootstrap-table.min"
 import {logout, profile} from "../services/UserService";
+import {API_URL} from "../constants/costants";
 
 class SearchContainer extends React.Component {
     state = {
@@ -21,7 +22,7 @@ class SearchContainer extends React.Component {
     };
 
     componentDidMount() {
-        fetch(`http://localhost:8080/profile`, {
+        fetch(`${API_URL}/api/profile`, {
             method: 'POST',
             credentials: "include"
         })
@@ -67,7 +68,7 @@ class SearchContainer extends React.Component {
 
     search = (val) => {
         let isValid = 1;
-        fetch(` http://localhost:8080/api/checkvalid/${val}`)
+        fetch(`${API_URL}/api/checkvalid/${val}`)
             .then(response => response.json())
             .then(isValid => {
                 this.setState({
@@ -110,6 +111,11 @@ class SearchContainer extends React.Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent-4">
                         <ul className="navbar-nav ml-auto">
+                            <li className="nav-item active">
+                                <Link className="nav-link" to={`/privacy-policy`}>
+                                    <i className="fas fa-key"/>&nbsp;Privacy Policy
+                                </Link>
+                            </li>
                             <li className="nav-item active">
                                 {
                                     this.state.loginStatus !== 200 &&
