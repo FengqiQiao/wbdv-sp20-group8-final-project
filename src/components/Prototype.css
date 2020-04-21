@@ -3625,3 +3625,8 @@ input {
 .privacy-btn:hover{
     background-color: #b4b0b2;
 }
+
+.imgHomePage{
+    margin-top: -35px;
+    margin-left: 100px;
+}

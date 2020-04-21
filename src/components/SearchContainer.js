@@ -221,16 +221,19 @@ class SearchContainer extends React.Component {
                                                    // console.log(this.state.serchResponse);
 
                                                    this.state.searchResponse === 1 &&
-                                                   <div className="data-font"><i className="fab fa-forumbee"/>&nbsp;&nbsp;
-                                                       {
-                                                           this.state.loginStatus === 200 &&
-                                                           <Link to={`/forum/${this.state.inputFieldForum}`}>Forum for {this.state.inputFieldForum}</Link>
-                                                       }
-                                                       {
-                                                           this.state.loginStatus === 500 &&
-                                                           <Link to={`/login/${this.state.inputFieldForum}`}>Forum for {this.state.inputFieldForum}</Link>
-                                                       }
-                                                   </div>
+                                                       <div>
+                                                           <div className="data-font"><i className="fab fa-forumbee"/>&nbsp;&nbsp;
+                                                               {
+                                                                   this.state.loginStatus === 200 &&
+                                                                   <Link to={`/forum/${this.state.inputFieldForum}`}>Forum for {this.state.inputFieldForum}</Link>
+                                                               }
+                                                               {
+                                                                   this.state.loginStatus === 500 &&
+                                                                   <Link to={`/login/${this.state.inputFieldForum}`}>Forum for {this.state.inputFieldForum}</Link>
+                                                               }
+                                                           </div>
+                                                           <img src="https://media.giphy.com/media/TKoaCxDzkjUmFruuCQ/giphy.gif" className="imgHomePage" width="94" height="63"/>
+                                                       </div>
                                                }
                                            </div>
                                        {/*{*/}
