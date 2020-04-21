@@ -37,6 +37,13 @@ class ForumComponent extends React.Component {
                 profile: profile
         }));
 
+        findUniversityByName(this.props.universityName)
+            .then(res =>{
+                this.setState({
+                    university: res
+                })
+            });
+
         findQuestionsForUniversity(this.props.universityName)
             .then(res => {
                 this.setState({
@@ -60,16 +67,23 @@ class ForumComponent extends React.Component {
         }
     }
 
-    // componentDidUpdate(prevProps, prevState, snapshot) {
-    //     if (this.props.qid !== this.props.qid){
-    //         findAnswersForQuestion(this.props.qid)
-    //             .then(res => {
-    //                 this.setState({
-    //                     answers: res
-    //                 })
-    //             })
-    //     }
-    // }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevState.askingQuestion !== this.state.askingQuestion){
+            findQuestionsForUniversity(this.props.universityName)
+                .then(res => {
+                    this.setState({
+                        questions: res
+                    })
+                    console.log(res)
+                })
+        }
+    }
+
+    postQuestion = () => {
+        this.setState(prevState => ({
+            askingQuestion: !prevState.askingQuestion
+        }))
+    }
 
     findQuestionId = (qid) =>
         findQuestionById(qid)
@@ -82,10 +96,12 @@ class ForumComponent extends React.Component {
 
     postAnswer = async () => {
         if(this.state.newAnswer.answerContent !== '') {
+            let currentDate = new Date()
             await this.setState({
                 newAnswer: {
                     ...this.state.newAnswer,
-                    questionId: this.props.qid
+                    questionId: this.props.qid,
+                    time: currentDate.toLocaleString('en')
                 }
             });
             await createAnswer(this.props.qid, this.state.newAnswer);
@@ -109,54 +125,46 @@ class ForumComponent extends React.Component {
         return(
             <div className="container-fluid">
                 <div className="tp-banner-container">
-                    <div className="tp-banner">
-                        <img src={this.state.university.imgURL} height="400" className="headerImage"/>
+                    <div className="tp-banner" >
+                        <img src={this.state.university.imgURL}  className="headerImage"/>
+                        {/*<img src='https://catalystactivation.com/imager/primaryimages/54390/Projects-MW-NEU-Primary_6270d9b7953ab4c08cff3b32ec11b910.jpg' height="400" className="headerImage"/>*/}
                     </div>
                 </div>
 
                 <div className="headernav">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-1 col-xs-1 col-sm-1 col-md-1"></div>
-                            <div className="col-lg-2 col-xs-8 col-sm-4 col-md-2 selecttopic">
-                                <a data-toggle="dropdown" href="#">{this.props.universityName}</a>
-                                <b className="caret"></b>
-                                    {/*<ul className="dropdown-menu" role="menu">*/}
-                                    {/*    <li role="presentation"><a role="menuitem" tabIndex="-1"*/}
-                                    {/*                               href="#">Borderlands 1</a></li>*/}
-                                    {/*    <li role="presentation"><a role="menuitem" tabIndex="-2"*/}
-                                    {/*                               href="#">Borderlands 2</a></li>*/}
-                                    {/*    <li role="presentation"><a role="menuitem" tabIndex="-3"*/}
-                                    {/*                               href="#">Borderlands 3</a></li>*/}
-
-                                    {/*</ul>*/}
+                            <div className="col-sm-2 d-none d-sm-block selecttopic">
+                                {this.props.universityName}
                             </div>
-                            <div className="col-lg-5 search hidden-xs hidden-sm col-md-5 form-inline">
+                            <div className="col-sm-5 d-none d-sm-block search ">
                                 <span className="pull-left txt">
                                     <input type="text"
                                            className="form-control w-75"
-                                           placeholder="Search Post"/>
+                                           placeholder="Search Post"
+                                    />
                                 </span>
+                            </div>
+                            <div className="col-sm-1 d-none d-sm-block search">
                                 <span className="float-right">
                                     <button className="btn btn-default" type="button">
                                         <i className="fa fa-search"/>
                                     </button>
                                 </span>
                             </div>
-                            <div className="col-lg-4 col-xs-12 col-sm-5 col-md-4 avt">
-                                <div className="stnt pull-left">
-                                    {/*<form action="03_new_topic.html" method="post" className="form">*/}
-                                    {/*    <button className="btn btn-primary">Start New Post</button>*/}
-                                    {/*</form>*/}
-                                    <button className="btn btn-primary" onClick={() => {
-                                        this.setState(prevState => ({
-                                            askingQuestion: !prevState.askingQuestion
-                                        }))
-                                    }}>Start New Post</button>
+                            <div className="col-sm-4 avt">
+                                <div className="align-self-center">
+                                    {
+                                        !this.state.multipleAnswer &&
+                                        <button className="btn btn-primary" onClick={() => {
+                                            this.setState(prevState => ({
+                                                askingQuestion: !prevState.askingQuestion
+                                            }))
+                                        }}>
+                                            Start New Post
+                                        </button>
+                                    }
                                 </div>
-
-
-                                <div className="clearfix"></div>
                             </div>
                         </div>
                     </div>
@@ -204,7 +212,11 @@ class ForumComponent extends React.Component {
                         <div className="row">
                             <div className="col-lg-8 col-md-8">
                                 {
-                                    this.state.askingQuestion && !this.state.multipleAnswer  && <NewQuestionComponent universityName={this.props.universityName}/>
+                                    this.state.askingQuestion && !this.state.multipleAnswer  &&
+                                    <NewQuestionComponent
+                                        universityName={this.props.universityName}
+                                        postQuestion={this.postQuestion}
+                                    />
                                 }
 
                                 {/*questions*/}
@@ -229,7 +241,6 @@ class ForumComponent extends React.Component {
                                                     </h2>
                                                     <hr/>
                                                     <p>{question.questionContent}
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque blanditiis corporis dolorum est fuga fugit, id in iste itaque labore laboriosam magni minima, nemo officiis qui repellat repellendus voluptates.
                                                     </p>
                                                 </div>
                                                 <div className="clearfix"></div>

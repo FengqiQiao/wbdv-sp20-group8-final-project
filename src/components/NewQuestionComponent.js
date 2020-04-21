@@ -15,21 +15,28 @@ class NewQuestionComponent extends React.Component {
     }
 
     submit = async () => {
-        let currentDate = new Date();
-        await this.setState({
-            newQuestion: {
-                ...this.state.newQuestion,
-                time: currentDate.toLocaleString('en')
-            }
-        })
-       await findUniversityByName(this.props.universityName)
-           .then(res => this.setState({
-               newQuestion: {
-                   ...this.state.newQuestion,
-                   universityId: res.id
-           }}))
-        createQuestion(this.props.universityName,this.state.newQuestion)
+        if(this.state.newQuestion.questionTitle !== '' && this.state.newQuestion.questionContent !== ''){
+            let currentDate = new Date();
+            await this.setState({
+                newQuestion: {
+                    ...this.state.newQuestion,
+                    time: currentDate.toLocaleString('en')
+                }
+            })
+            await findUniversityByName(this.props.universityName)
+                .then(res => this.setState({
+                    newQuestion: {
+                        ...this.state.newQuestion,
+                        universityId: res.id
+                    }}))
+            await createQuestion(this.props.universityName,this.state.newQuestion)
+            await this.props.postQuestion()
+        }
+        else
+            alert("Question title and content can not be empty.")
+
     }
+
     render() {
         return(
             <div>
@@ -68,8 +75,14 @@ class NewQuestionComponent extends React.Component {
                             />
                         </div>
                         <hr/>
-                        <button className="btn btn-primary form-control"
-                                onClick={this.submit}>POST</button>
+                        <button
+                            className="btn btn-primary form-control"
+                            onClick={async ()=>{
+                                await this.submit();
+                            }}
+                        >
+                            POST
+                        </button>
                     </div>
                     <div className="clearfix"></div>
                 </div>

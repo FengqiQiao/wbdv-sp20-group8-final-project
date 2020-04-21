@@ -2024,8 +2024,8 @@ ul.socialicons li a:hover {
     color: #ffffff;
     font-size: 14px;
     font-family: 'Open Sans Bold', sans-serif;
-    padding-left: 30px;
-    padding-right: 30px;
+    /*padding-left: 30px;*/
+    /*padding-right: 30px;*/
     /*background-color: #1abc9c;*/
 }
 
@@ -3079,8 +3079,10 @@ a.down:hover {
 }
 
 .headerImage {
-    height: 400px;
     width: 100%;
+    object-fit: contain
+    /*height: 400px;*/
+    /*width: 100%;*/
 }
 
 .h1-black{
@@ -3556,4 +3558,9 @@ input {
 .answer-font{
     font-weight: bold;
     font-size: 20px;
+}
+
+.tp-banner {
+    height: 35vw;
+    overflow: hidden;
 }
