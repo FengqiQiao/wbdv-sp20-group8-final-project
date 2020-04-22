@@ -161,7 +161,7 @@ class ForumComponent extends React.Component {
                             <div className="col-sm-4 avt">
                                 <div className="align-self-center">
                                     {
-                                        !this.state.multipleAnswer &&
+                                        !this.state.multipleAnswer && !this.state.askingQuestion &&
                                         <button className="btn btn-primary" onClick={() => {
                                             this.setState(prevState => ({
                                                 askingQuestion: !prevState.askingQuestion
@@ -207,6 +207,26 @@ class ForumComponent extends React.Component {
                                                     })}
                                                 />
                                             </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    {
+                        this.state.askingQuestion &&  !this.state.multipleAnswer &&
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-8 col-xs-12 col-md-8 form-inline">
+                                    <div className="pull-left">
+                                        <div className="prevnext">
+                                            <i
+                                                className="fa fa-angle-left"
+                                                onClick={() => this.setState({
+                                                    askingQuestion: false
+                                                })}
+                                            />
                                         </div>
                                     </div>
                                 </div>
