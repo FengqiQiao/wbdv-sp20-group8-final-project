@@ -10,7 +10,10 @@ import {createAnswer, findAnswersForQuestion} from "../services/AnswerService";
 class ForumComponent extends React.Component {
     state = {
         university: {
-            imgURL: ''
+            imgURL: '',
+            ranking: 0,
+            location: '',
+            tuitionFee: 0
         },
         profile: {
             role: '',
@@ -441,9 +444,9 @@ class ForumComponent extends React.Component {
                                                     </td>
                                                 </tr>
                                                 <ul className="cats">
-                                                    <li><a>Location: <span className="badge pull-right">Boston, MA</span></a></li>
-                                                    <li><a>US News Ranking: <span className="badge pull-right">39</span></a></li>
-                                                    <li><a>Preferred Student: <span className="badge pull-right">High GPA</span><span className="badge pull-right">Had Working Experience</span></a></li>
+                                                    <li><a>Location: <span className="badge pull-right">{this.state.university.location}</span></a></li>
+                                                    <li><a>US News Ranking: <span className="badge pull-right">{this.state.university.ranking}</span></a></li>
+                                                    <li><a>Tuition: <span className="badge pull-right">{this.state.university.tuitionFee}</span></a></li>
                                                 </ul>
                                             </table>
                                         </form>
